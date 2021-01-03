@@ -7,6 +7,9 @@
     <tr>
         <td>:white_medium_small_square: <a href="#https">HTTPS</a></td>
     </tr>
+    <tr>
+        <td>:white_medium_small_square: <a href="#http-methods">HTTP methods</a></td>
+    </tr>
 </table>
 
 ### Http
@@ -37,7 +40,7 @@
 
 - - - 
 ### Https
-HTTPS (Hypertext Transfer Protocol Secure) is an internet communication protocol that protects the integrity and confidentiality of data between the user's computer and the site. Users expect a secure and private online experience when using a website. We encourage you to adopt HTTPS in order to protect your users' connections to your website, regardless of the content on the site.
+HTTPS (Hypertext Transfer Protocol Secure) is an internet communication protocol that protects the integrity and confidentiality of data between the user's computer and the site. Users expect a secure and private online experience when using a website.
 
 Data sent using HTTPS is secured via Transport Layer Security protocol (TLS), which provides three key layers of protection:
 1. **Encryption** - encrypting the exchanged data to keep it secure from eavesdroppers. That means that while the user is browsing a website, nobody can "listen" to their conversations, track their activities across multiple pages, or steal their information.
@@ -51,3 +54,39 @@ Data sent using HTTPS is secured via Transport Layer Security protocol (TLS), wh
 <p><a href="#checklist">Back to top :arrow_double_up:</a></p>
 
 - - -
+### Http methods
+- **GET**  
+Requests a representation of the specified resource. Requests using GET should only retrieve data.
+- **HEAD**  
+Asks for a response identical to that of a GET request, but without the response body.
+- **POST**  
+Submit an entity to the specified resource, often causing a change in state or side effects on the server.
+- **PUT**  
+Replaces all current representations of the target resource with the request payload.
+- **DELETE**  
+Deletes the specified resource.
+- **CONNECT**  
+Establishes a tunnel to the server identified by the target resource.
+- **OPTIONS**  
+Describe the communication options for the target resource.
+- **TRACE**  
+Performs a message loop-back test along the path to the target resource.
+- **PATCH**  
+Apply partial modifications to a resource.
+
+In the REST API:
+|Method|Used for|URL|
+|------|-------|----|
+|GET|Get entity or list of entities|`/books/1` *or* `/books`|
+|POST|Create entity|`/books`|
+|PUT|Replace entity|`/books/1`|
+|PATCH|Update entity|`/books/1`|
+|DELETE|Delete entity|`/books/1`|
+
+**Options** methods usually used for preflight request. (CORS)
+
+:information_source: More information [here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods)
+
+<p><a href="#checklist">Back to top :arrow_double_up:</a></p>
+- - -
+
