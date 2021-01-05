@@ -10,6 +10,9 @@
     <tr>
         <td>:white_medium_small_square: <a href="#http-methods">HTTP methods</a></td>
     </tr>
+    <tr>
+        <td>:white_medium_small_square: <a href="#cors">Cors</a></td>
+    </tr>
 </table>
 
 ### Http
@@ -88,5 +91,24 @@ In the REST API:
 :information_source: More information [here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods)
 
 <p><a href="#checklist">Back to top :arrow_double_up:</a></p>
-- - -
 
+- - -
+### Cors
+
+**Cross-Origin Resource Sharing** (CORS) is an HTTP-header based mechanism that allows a server to indicate any other origins (domain, scheme, or port) than its own from which a browser should permit loading of resources. CORS also relies on a mechanism by which browsers make a “preflight” request to the server hosting the cross-origin resource, in order to check that the server will permit the actual request. In that preflight, the browser sends headers that indicate the HTTP method and headers that will be used in the actual request.
+
+The CORS protocol consists of a set of headers that indicates whether a response can be shared cross-origin.
+
+For requests that are more involved than what is possible with HTML’s form element, a CORS-preflight request is performed, to ensure request’s current URL supports the CORS protocol.
+
+An example of a cross-origin request: the front-end JavaScript code served from `https://domain-a.com` uses XMLHttpRequest to make a request for `https://domain-b.com/data.json`.
+
+For security reasons, browsers restrict cross-origin HTTP requests initiated from scripts. For example, XMLHttpRequest and the Fetch API follow the same-origin policy. This means that a web application using those APIs can only request resources from the same origin the application was loaded from unless the response from other origins includes the right CORS headers.
+
+:information_source: More information:
+ - [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) // highly recommend read this article in full
+ - [Specification](https://fetch.spec.whatwg.org/#cors-protocol)
+
+ <p><a href="#checklist">Back to top :arrow_double_up:</a></p>
+
+- - -
