@@ -13,6 +13,9 @@
     <tr>
         <td>:white_medium_small_square: <a href="#cors">Cors</a></td>
     </tr>
+    <tr>
+        <td>:white_medium_small_square: <a href="#jsonp">JSONP</a></td>
+    </tr>
 </table>
 
 ### Http
@@ -108,6 +111,55 @@ For security reasons, browsers restrict cross-origin HTTP requests initiated fro
 :information_source: More information:
  - [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) // highly recommend read this article in full
  - [Specification](https://fetch.spec.whatwg.org/#cors-protocol)
+
+ <p><a href="#checklist">Back to top :arrow_double_up:</a></p>
+
+- - -
+### JSONP
+
+**JSONP**(JSON with Padding) is a method for sending JSON data without worrying about cross-domain issues, because **JSONP** does not use the *XMLHttpRequest* object. **JSONP** uses the `<script>` tag instead.
+
+There are 2 steps:
+1. Simple request:
+```javascript
+function addScript(src) {
+  var elem = document.createElement("script");
+  elem.src = src;
+  document.head.appendChild(elem);
+}
+
+addScript('user?id=123');
+```
+Executing this code will add to `<head>` next tag:
+```html
+<script src="user?id=123"></script>
+```
+After that browser start download and execute script.  
+
+2. Handling response  
+
+Server response consist of data, wrapped in some function call. Name of this function usually passes like query parameter (`addScript('user?id=123&callback=onUserData')`), but also it can be pre-agreed name.
+When script downloaded, function with such name start executing with data argument.  
+
+Server response:
+```
+onUserData({
+  name: "Valerius",
+  age: 54
+});
+```
+Front end handler:
+```javascript
+function onUserData(data) {
+    document.getElementById("hello").innerHTML = `Hello ${data.name}, are you already decide where you will celebrate your ${data.age + 1}-th birthday?`;
+}
+```
+
+*Server shoud be relieble, because any code can be exectuted in that way.*
+
+:information_source: More information:
+ - [w3schools](https://www.w3schools.com/js/js_json_jsonp.asp)
+ - [learn javascript(ru)](https://learn.javascript.ru/ajax-jsonp)
 
  <p><a href="#checklist">Back to top :arrow_double_up:</a></p>
 
